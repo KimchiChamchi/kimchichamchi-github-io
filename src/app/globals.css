@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap);
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #f0f2f5; /* Light gray background */
+    color: #333;
+}
+
+.card {
+    height: 250px;
+    overflow: hidden !important;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+.card,
+.card .content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.card .content {
+    flex-direction: column;
+    height: 100%;
+    font-family: Open Sans;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform: translateY(20px);
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay on hover */
+    color: #fff; /* White text on hover */
+}
+.card .content h1 {
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.card .content p {
+    font-size: 16px;
+    color: #fff; /* Changed to white for better contrast */
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.card .content .btn {
+    max-width: 100px;
+    background-color: #007bff; /* Blue button */
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.card .content .btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+.card .content:hover {
+    opacity: 1;
+    transform: translate(0);
+    background-color: hsla(0, 0%, 73.3%, 0.6784313725490196);
+}
+.navbar-wrapper {
+    width: 80vw;
+    margin-top: 5vh; /* Adjusted margin */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0; /* Added padding */
+    border-bottom: 1px solid #eee; /* Subtle separator */
+}
+.navbar-wrapper .name {
+    font-weight: 700; /* Bolder font */
+    font-size: 24px; /* Larger font */
+    color: #333;
+}
+.navbar-wrapper .links-wrapper button {
+    text-decoration: none;
+    padding: 10px 15px; /* Adjusted padding */
+    font-family: "Montserrat", sans-serif; /* Changed font */
+    opacity: 0.8;
+    transition: all 0.2s ease-in-out;
+    font-size: 16px;
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    cursor: pointer;
+    color: #555;
+}
+.navbar-wrapper .links-wrapper button:hover {
+    opacity: 1;
+    color: #007bff; /* Blue on hover */
+}
+.navbar-wrapper .links-wrapper .active {
+    color: #007bff; /* Active link color */
+    font-weight: 600;
+}
+.header-wrapper {
+    width: 80vw;
+    margin-top: 5vh; /* Adjusted margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 0;
+}
+.header-wrapper h1 {
+    font-size: 3rem; /* Larger heading */
+    font-weight: 700;
+    color: #222;
+}
+.header-wrapper h2 {
+    font-size: 1.5rem; /* Larger subheading */
+    color: #666;
+    line-height: 1.5;
+}
+@media (max-width: 768px) {
+    .navbar-wrapper {
+        flex-direction: column;
+        margin-top: 2vh;
+    }
+    .navbar-wrapper .links-wrapper {
+        margin-top: 10px;
+    }
+    .header-wrapper h1 {
+        font-size: 2rem;
+    }
+    .header-wrapper h2 {
+        font-size: 1.2rem;
+    }
+    .main-content {
+        padding: 10px;
+    }
+}
+
+/* 기존 Next.js 기본 스타일 제거 또는 오버라이드 */
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
